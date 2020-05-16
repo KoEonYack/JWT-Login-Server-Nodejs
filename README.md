@@ -5,6 +5,8 @@
 ```
 npm install express --save
 npm install mongoose --save
+npm install body-parser --save
+npm install nodemon --save-dev
 ```
 - --save: package.json에 반영됩니다.
 
@@ -20,6 +22,11 @@ npm install -g nodemon
 npm run start
 ```
 - start 스크립트 다음에 실행이된다.
+
+
+```
+npm run backend
+```
 
 
 ## 참고 링크
