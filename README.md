@@ -32,6 +32,28 @@ npm run backend
 ```
 
 
+## Test Json
+
+### login, logout
+
+``` json
+{
+	"email": "1234@naver.com",
+	"password": "123456"
+}
+```
+
+## Register
+
+``` json
+{
+	"name": "test-name1",
+	"email": "123@naver.com",
+	"password": "123456"
+}
+```
+
+
 ## 참고 링크
 
 - https://www.youtube.com/watch?v=7sHWMkFOR7c&list=PL9a7QRYt5fqkZC9jc7jntD1WuAogjo_9T&index=2

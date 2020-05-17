@@ -57,8 +57,8 @@ userSchema.methods.comparePassword = function(plainPassword, cb){
 
     // plainPassword 1234567   암호화된 비밀번호 xxxx 같은지 검사를 해야한다.
     bcrypt.compare(plainPassword, this.password, function (err, isMatch){
-        if(err) return cb(err), // 비밀번호가 같지 않다.
-            cb(null, isMatch)
+        if(err) return cb(err); // 비밀번호가 같지 않다.
+        cb(null, isMatch);
     })
 }
 
@@ -82,7 +82,6 @@ userSchema.methods.generateToken = function(cb) {
 
 userSchema.statics.findByToken = function ( token, cb){
     var user = this;
-
 
     // 토큰을 decode 한다.
     jwt.verify(token, 'secretToken', function(err, decoded){
