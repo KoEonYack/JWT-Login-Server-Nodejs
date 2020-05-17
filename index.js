@@ -4,7 +4,7 @@ const port = 5002;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const config = require('./config/key');
-
+const { auth } = require('./middleware/auth');
 const { User } = require("./models/User");
 
 // applicaton/x-www-form-urlencoded 를 분석해서 가져올 수 있게
@@ -26,7 +26,7 @@ app.get('/', (req, res) =>
     res.send('HelloWorld')
 )
 
-app.post("/register", (req, res) => {
+app.post("/api/users/register", (req, res) => {
 
     const user = new User(req.body) 
 
@@ -38,7 +38,7 @@ app.post("/register", (req, res) => {
     })
 })
 
-app.post('/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
     
     // 요청된 이메일을 데이터베이스에서 있는지 찾는다.
     User.findOne({ email: req.body.email }, (err, user) => {
@@ -65,9 +65,24 @@ app.post('/login', (req, res) => {
                 .status(200)
                 .json({ loginSuccess: true, userId: userId._id })
             })
-
         })
+    })
+})
 
+
+// role 0 일반유저, role 0이 아니면 관리자
+app.get('/api/users/auth', auth, (rqe, res) => {
+
+    // 여기까지 미들웨어를 통과해 왔다는 이야기는 Authentication이 True라는 말.
+    res.status(200).json({
+        _id: req.user.id,
+        isAdmin: req.user.role === 0 ? false : true, 
+        isAuth: true,
+        email: req.user.email,
+        name: req.user.name,
+        lastname: req.user.lastname,
+        role: req.user.role,
+        image: req.user.image
     })
 
 })
