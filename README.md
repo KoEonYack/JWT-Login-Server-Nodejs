@@ -18,6 +18,18 @@ npm install cookie-parser --save
 npm install -g nodemon
 ```
 
+## Client
+
+client 디렉토리로 이동.
+```
+npx create-react-app .
+```
+
+
+```
+npm run start
+```
+
 
 ## 실행
 
@@ -56,5 +68,5 @@ npm run backend
 
 ## 참고 링크
 
-- https://www.youtube.com/watch?v=7sHWMkFOR7c&list=PL9a7QRYt5fqkZC9jc7jntD1WuAogjo_9T&index=2
+- https://www.youtube.com/watch?v=6kpEtyi2qZY&list=PL9a7QRYt5fqkZC9jc7jntD1WuAogjo_9T&index=18
 - https://github.com/KoEonYack/Nodejs-Practice-Private/blob/master/StudyNote.md
