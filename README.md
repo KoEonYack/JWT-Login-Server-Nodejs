@@ -23,6 +23,7 @@ npm install -g nodemon
 client 디렉토리로 이동.
 ```
 npx create-react-app .
+npm install react-router-dom --save
 ```
 
 
