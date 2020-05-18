@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const config = require('./config/key');
 const { auth } = require('./middleware/auth');
 const { User } = require("./models/User");
+const cors = require('cors');
+
 
 // applicaton/x-www-form-urlencoded 를 분석해서 가져올 수 있게
 app.use(bodyParser.urlencoded({extended: true}));
@@ -13,6 +15,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 // application/json 을 분석해서 가져올 수 있게
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+const corsOptions = {
+    origin: 'http://localhost:3000', // 허락하고자 하는 요청 주소
+    credentials: true, // true로 하면 설정한 내용을 response 헤더에 추가 해줍니다.
+};
+app.use(cors(corsOptions)); 
 
 const mongoose = require("mongoose")
 
