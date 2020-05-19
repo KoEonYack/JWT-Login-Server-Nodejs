@@ -15,7 +15,7 @@ npm install concurrently --save
 ```
 - --save: package.json에 반영됩니다.
 
-
+ 
 ```
 npm install -g nodemon
 ```
@@ -27,8 +27,11 @@ client 디렉토리로 이동.
 npx create-react-app .
 npm install react-router-dom --save
 npm install axios --save
+npm install antd --save
+npm install redux react-redux redux-promise redux-thunk --save
 ```
-
+- __redux-tuhun__: 어떻게 function을 받는지 알려주는 것
+- __redux-promise__: promise가 왔을 때 어떻게 대처하는지 알려주는 것
 
 ```
 npm run start
@@ -78,6 +81,9 @@ __한번에 실행__
 	"password": "123456"
 }
 ```
+
+## 확장
+- Formik, Yup 라이브러리 사용
 
 
 ## 참고 링크
