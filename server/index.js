@@ -7,6 +7,7 @@ const config = require('./config/key');
 const { auth } = require('./middleware/auth');
 const { User } = require("./models/User");
 const cors = require('cors');
+const errorController = require("./controllers/errorController");
 
 
 // applicaton/x-www-form-urlencoded 를 분석해서 가져올 수 있게
@@ -28,6 +29,11 @@ mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log("MongoDB Connected..."))
 .catch(err => console.log(err))
+
+
+app.use(errorController.pageNotFoundError)
+app.use(errorController.respondInternalError)
+
 
 
 app.get('/', (req, res) =>
